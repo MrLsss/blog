@@ -1,0 +1,63 @@
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <li>
+                <a :class="{active:1===index}" href="/admin/index">
+                    <i class="icon-home"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a :class="{active:2===index}" href="/admin/article">
+                    <i class="icon-book"></i>
+                    <span>文章管理</span>
+                </a>
+            </li>
+
+            <li class="sub-menu">
+                <a :class="{active:3===index}" href="/admin/classify">
+                    <i class="icon-list"></i>
+                    <span>分类管理</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a :class="{active:4===index}" href="/admin/tag">
+                    <i class="icon-tags"></i>
+                    <span>标签管理</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a :class="{active:5===index}" href="/admin/comment">
+                    <i class="icon-comments-alt"></i>
+                    <span>评论管理</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a :class="{active:6===index}" href="/admin/link">
+                    <i class="icon-link"></i>
+                    <span>友链管理</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a :class="{active:7===index}" href="/admin/log">
+                    <i class="icon-bolt"></i>
+                    <span>系统日志</span>
+                </a>
+            </li>
+            <li>
+                <a :class="{active:8===index}" href="/admin/setting">
+                    <i class="icon-cogs"></i>
+                    <span>系统设置</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/asd">
+                    <i class="icon-trash"></i>
+                    <span>回收站</span>
+                </a>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common/head"></head>
+<title>OIA后台管理系统</title>
+<link rel="stylesheet" th:href="@{/admin/css/index.css}">
+<body>
+<section id="container">
+    <div th:replace="admin/common/header"></div>
+    <div th:replace="admin/common/sidebar"></div>
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row state-overview">
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol terques">
+                            <i class="icon-book"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="articleCount">
+                                0
+                            </h1>
+                            <p>文章</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol red">
+                            <i class="icon-tags"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="tagCount">
+                                0
+                            </h1>
+                            <p>标签</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol yellow">
+                            <i class="icon-list"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="classifyCount">
+                                0
+                            </h1>
+                            <p>分类</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol blue">
+                            <i class="icon-comments-alt"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="msgboardCount">
+                                0
+                            </h1>
+                            <p>留言</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <el-card class="box-card">
+                        <div slot="header" class="clearfix">
+                            <span>文章访问top10</span>
+                        </div>
+                        <div class="text item">
+                            <div id="visitTop" class="chart"></div>
+                        </div>
+                    </el-card>
+                </div>
+                <div class="col-lg-4">
+                    <el-card class="box-card">
+                        <div slot="header" class="clearfix">
+                            <span>分类文章统计图</span>
+                        </div>
+                        <div class="text item">
+                            <div id="articleClassifyPie" class="chart"></div>
+                        </div>
+                    </el-card>
+                </div>
+                <div class="col-lg-4">
+                    <el-card class="box-card">
+                        <div slot="header" class="clearfix">
+                            <span>标签云</span>
+                        </div>
+                        <div class="text item">
+                            <div id="tagsCloud" class="chart"></div>
+                        </div>
+                    </el-card>
+                </div>
+            </div>
+            <div style="margin-top: 20px;" class="row">
+                <div class="col-lg-8">
+                    <div class="block">
+                        <el-timeline>
+                            <el-timeline-item v-for="item in record" :timestamp="item.log_time" placement="top">
+                                <el-card>
+                                    <h4>{{item.log_dec}}</h4>
+                                    <p>{{item.log_user}} 于 {{item.log_time}}</p>
+                                </el-card>
+                            </el-timeline-item>
+                        </el-timeline>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <el-card class="box-card">
+                        <div slot="header" class="clearfix">
+                            <span>最新评论</span>
+                        </div>
+                        <div class="text item">
+
+                        </div>
+                    </el-card>
+                </div>
+            </div>
+        </section>
+    </section>
+    <div th:replace="admin/common/footer"></div>
+</section>
+
+<script type="text/javascript" th:replace="admin/common/js"></script>
+
+<!--script for this page-->
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/assets/lib/lodash-4.17.4.min.js"></script>
+<script th:src="@{/admin/js/index.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common/head"></head>
+<title>OIA后台管理系统</title>
+<body>
+<section id="container">
+    <div th:replace="admin/common/header"></div>
+    <div th:replace="admin/common/sidebar"></div>
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <!-- page start-->
+            <div class="row">
+                <aside class="profile-nav col-lg-3">
+                    <section class="panel">
+                        <div class="user-heading alt green-bg">
+                            <a href="javascript:void(0);">
+                                <img :src="headImg" alt="头像logo">
+                            </a>
+                            <h1>{{webMasterInfo.wmName}}</h1>
+                            <p>{{webMasterInfo.wmEmail}}</p>
+                        </div>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li :class='{active:1===current}' @click="clickBaseInfo">
+                                <a href="javascript:void(0)"> <i class="icon-info-sign"></i>网站基本信息</a>
+                            </li>
+                            <li :class='{active:2===current}' @click="clickPersonInfo">
+                                <a href="javascript:void(0)"> <i class="icon-user"></i>个人基本信息</a>
+                            </li>
+                            <li :class='{active:3===current}' @click="modifyPwd">
+                                <a href="javascript:void(0)"> <i class="icon-key"></i>修改密码</a>
+                            </li>
+                        </ul>
+                    </section>
+                </aside>
+                <aside class="profile-info col-lg-9">
+                    <el-form v-show="showBaseInfo" :model="baseInfo" :rules="rules" ref="baseInfo" label-width="100px">
+                        <el-card class="box-card">
+                            <div slot="header" class="clearfix">
+                                <span>网站基本信息</span>
+                            </div>
+                            <div class="text item">
+                                <el-form-item label="网站名称" prop="siteName" required>
+                                    <el-input v-model="baseInfo.siteName"></el-input>
+                                </el-form-item>
+                                <el-form-item label="网站简介" prop="siteDec" required>
+                                    <el-input v-model="baseInfo.siteDec"></el-input>
+                                </el-form-item>
+                                <el-form-item label="博客地址" prop="siteBlogAddress" required>
+                                    <el-input v-model="baseInfo.siteBlogAddress"></el-input>
+                                </el-form-item>
+                                <el-form-item label="后台地址" prop="siteAddress" required>
+                                    <el-input v-model="baseInfo.siteAddress"></el-input>
+                                </el-form-item>
+                                <el-form-item label="网站图标" prop="siteImg" required>
+                                    <el-input v-model="baseInfo.siteImg"></el-input>
+                                </el-form-item>
+                                <el-form-item label="网站LOGO" prop="siteLogo" required>
+                                    <el-input v-model="baseInfo.siteLogo"></el-input>
+                                </el-form-item>
+                                <el-form-item label="版权信息" prop="siteCopyright" required>
+                                    <el-input v-model="baseInfo.siteCopyright"></el-input>
+                                </el-form-item>
+                                <el-form-item label="备案号" prop="siteNumber" required>
+                                    <el-input v-model="baseInfo.siteNumber"></el-input>
+                                </el-form-item>
+                                <el-form-item>
+                                    <el-button type="primary" @click="submitBaseInfo('baseInfo')">保存</el-button>
+                                </el-form-item>
+                            </div>
+                        </el-card>
+                    </el-form>
+                    <el-form v-show="showPersonInfo" :model="webMasterInfo" :rules="rules" ref="webMasterInfo"
+                             label-width="120px">
+                        <el-card class="box-card">
+                            <div slot="header" class="clearfix">
+                                <span>个人基本信息</span>
+                            </div>
+                            <div class="text item">
+                                <el-form-item label="站长名称" label-width="120px" prop="wmName" required>
+                                    <el-input v-model="webMasterInfo.wmName"></el-input>
+                                </el-form-item>
+                                <el-form-item label="站长邮箱" label-width="120px" prop="wmEmail" required>
+                                    <el-input v-model="webMasterInfo.wmEmail"></el-input>
+                                </el-form-item>
+                                <el-form-item label="微信二维码" label-width="120px" prop="wmWeixin" required>
+                                    <el-input v-model="webMasterInfo.wmWeixin"></el-input>
+                                </el-form-item>
+                                <el-form-item label="支付宝二维码" label-width="120px" prop="wmAlipay" required>
+                                    <el-input v-model="webMasterInfo.wmAlipay"></el-input>
+                                </el-form-item>
+                                <el-form-item label="QQ" label-width="120px" prop="wmQq" required>
+                                    <el-input v-model="webMasterInfo.wmQq"></el-input>
+                                </el-form-item>
+                                <el-form-item label="GitHub" label-width="120px" prop="wmGithub" required>
+                                    <el-input v-model="webMasterInfo.wmGithub"></el-input>
+                                </el-form-item>
+                                <el-form-item label="自我简介" label-width="120px" prop="wmDec" required>
+                                    <el-input v-model="webMasterInfo.wmDec"></el-input>
+                                </el-form-item>
+                                <el-form-item>
+                                    <el-button type="primary" @click="submitPersonInfo('webMasterInfo')">保存</el-button>
+                                </el-form-item>
+                            </div>
+                        </el-card>
+                    </el-form>
+                    <el-form v-show="showModifyPwd" :model="ruleForm" status-icon :rules="rules" ref="ruleForm"
+                             label-width="100px" class="demo-ruleForm">
+                        <el-card class="box-card">
+                            <div slot="header" class="clearfix">
+                                <span>修改密码</span>
+                            </div>
+                            <div class="text item">
+                                <el-form-item label="原密码" prop="oldPass" required>
+                                    <el-input type="password" v-model="ruleForm.oldPass" autocomplete="off"></el-input>
+                                </el-form-item>
+                                <el-form-item label="密码" prop="pass" required>
+                                    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+                                </el-form-item>
+                                <el-form-item label="确认密码" prop="checkPass" required>
+                                    <el-input type="password" v-model="ruleForm.checkPass"
+                                              autocomplete="off"></el-input>
+                                </el-form-item>
+                                <el-form-item>
+                                    <el-button type="primary" @click="submitModifyPwd('ruleForm')">提交</el-button>
+                                </el-form-item>
+                            </div>
+                        </el-card>
+                    </el-form>
+                </aside>
+            </div>
+
+            <!-- page end-->
+        </section>
+    </section>
+    <div th:replace="admin/common/footer"></div>
+</section>
+
+<script type="text/javascript" th:replace="admin/common/js"></script>
+
+<!--script for this page-->
+<script th:src="@{/admin/js/setting.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!-- HEADER -->
+<header class="header-style header-style2 header-style3 header-style4">
+    <div class="hamburger-icon3">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="header-content">
+        <div class="row">
+            <div class="col-xs-6 col-sm-2">
+                <a class="logo" href="/">
+                    <img class="logo_30" alt=""/>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-10">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="hamburger-icon2">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="normal-s">
+                    <ul id="menu">
+                        <li id="index">
+                            <a href="/">首页</a>
+                        </li>
+                        <li id="list">
+                            <a href="/list">博客文章</a>
+                        </li>
+                        <li id="archives">
+                            <a href="/archives">归档</a>
+                        </li>
+                        <li id="about">
+                            <a href="/about">关于我</a>
+                        </li>
+                        <li id="msgboard">
+                            <a href="/msgboard">留言板</a>
+                        </li>
+                        <li id="link">
+                            <a href="/link">友情链接</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="topAndRec" th:fragment="topAndRec">
+                <div class="category">
+                    <span class="small-1">热门文章</span>
+                    <ul th:each="top : ${topArticle}">
+                        <li><a style="color: #989898" th:onclick="|addView(${top.id})|" th:href="'/article/'+${top.id}">[[${top.articleTitle}]]</a></li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <span class="small-1">推荐文章</span>
+                    <ul th:each="rec : ${recArticle}">
+                        <li><a style="color: #989898" th:onclick="|addView(${rec.id})|" th:href="'/article/'+${rec.id}">[[${rec.articleTitle}]]</a></li>
+                    </ul>
+                </div>
+                <div class="normal-3 section">
+                    <div class="follow">
+                        <a class="social" href="javascript:void(0)" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a class="social" href="javascript:void(0)" target="_blank">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a class="social" href="javascript:void(0)" target="_blank">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a class="social" href="javascript:void(0)" target="_blank">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mob-icon"></div>
+    </div>
+</header>
+<!-- HEADER -->

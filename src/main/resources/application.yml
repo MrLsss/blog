@@ -1,0 +1,54 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    name: springboot
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filter: stat
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+#      url: jdbc:mysql://47.100.15.146:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: 123456
+#      password: root
+      #配置初始化大小/最小/最大
+      initial-size: 1
+      min-idle: 1
+      max-wait: 60000
+      max-active: 20
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 60000
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: utf-8
+    mode: HTML
+    cache: false
+
+  #文件上传
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 10MB
+
+#mybatis配置
+mybatis:
+#  mapper-locations: classpath:mapper/admin/**/*.xml
+  type-aliases-package: com.blog.admin.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+
+# 打印sql
+logging:
+  level:
+    root: info
+    com.blog.admin.dao: DEBUG
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%t-%L] %-5level %logger{36} %L %M - %msg%xEx%n'

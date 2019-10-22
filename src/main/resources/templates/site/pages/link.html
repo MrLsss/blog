@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="site/common/head"></head>
+<link rel="stylesheet" th:href="@{/site/css/index.css}"/>
+<title>Ls'blog</title>
+<style>
+    body.custom-background {
+        background: #fff
+    }
+
+    .container {
+        padding: 10px 0px;
+    }
+</style>
+<body>
+<div th:replace="site/common/loader"></div>
+
+<div th:replace="site/common/header"></div>
+
+<div th:replace="site/common/overlay-menu"></div>
+
+<!-- content -->
+<div id="content-wrapper">
+
+    <div class="empty-space h45-xs h65-sm"></div>
+    <div class="container-fluid-style2">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <article>
+                    <h1 class="h1">友情链接</h1>
+                    <p>排名不分先后</p>
+                </article>
+            </div>
+            <div class="col-md-3">
+                <button class="btn-style1 style2"><span>申请友链</span></button>
+            </div>
+        </div>
+        <div class="empty-space h15-xs h45-sm"></div>
+        <div class="row">
+            <div id="main" class="content" style="width: 100%;">
+                <div class="container">
+                    <section class="post_content">
+                        <div class="links" id="linkList" th:fragment="linkList">
+                            <div class="userItems">
+                                <div class="userItem" th:each="link:${linkList}">
+                                    <div class="userItem--inner">
+                                        <div class="userItem-content"><img src="/public/img/20180414165840.jpg" class="avatar avatar-64 photo" height="64" width="64" />
+                                            <div class="userItem-name">
+                                                <a class="link link--primary" th:href="${link.linkUrl}" target="_blank">[[${link.linkName}]]</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="empty-space h10-xs h40-md fl"></div>
+    <!-- footer -->
+    <footer class="footer-style">
+        <div class="container">
+            <div th:replace="site/common/footer"></div>
+        </div>
+    </footer>
+    <!-- footer -->
+
+</div>
+<!-- content -->
+
+<script type="text/javascript" th:replace="site/common/js"></script>
+<script type="text/javascript" th:src="@{/site/js/link.js}"></script>
+</body>
+
+</html>

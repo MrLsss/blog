@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.admin.dao.TagDao">
+    <!--<select id="selectCounts" resultType="java.lang.Integer">-->
+        <!--select count(*) from t_blog_tag;-->
+    <!--</select>-->
+    <!--<select id="selectPage" resultType="com.blog.admin.entity.Tag">-->
+      <!--select * from t_blog_tag ${ew.customSqlSegment}-->
+    <!--</select>-->
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.admin.dao.ArticleDao">
+    <update id="viewAdd">
+        update t_blog_article set article_view = article_view + 1 where ID = #{id}
+    </update>
+
+    <update id="commentAdd">
+        update t_blog_article set article_comment = article_comment + 1 where ID = #{id};
+    </update>
+
+    <select id="getArticleArchives" resultType="com.blog.admin.entity.Article">
+        select article_title, id, article_creation_time from t_blog_article where is_delete = '0'
+        order by article_creation_time+0 desc;
+    </select>
+</mapper>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common/head"></head>
+<title>OIA后台管理系统</title>
+<link rel="stylesheet" th:href="@{/admin/css/comment.css}">
+<body>
+<section id="container">
+    <div th:replace="admin/common/header"></div>
+    <div th:replace="admin/common/sidebar"></div>
+    <!-- 回复 -->
+    <div>
+        <el-dialog width="30%" title="回复评论" :visible.sync="dialogFormReply">
+            <el-form :model="replyForm" status-icon ref="replyForm">
+                <el-form-item label="评论人" :label-width="formLabelWidth">
+                    <el-input v-model="replyForm.commentNickName" autocomplete="off" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="评论内容" :label-width="formLabelWidth">
+                    <el-input type="textarea" v-model="replyForm.commentContent" autocomplete="off"
+                              :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="回复内容" :label-width="formLabelWidth" required>
+                    <el-input type="textarea" v-model="replyForm.replyContent" autocomplete="off"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cancel('replyForm')">取 消</el-button>
+                <el-button type="primary" @click="submitFormReply('replyForm')">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+    <!--审核-->
+    <div>
+        <el-dialog width="30%" title="审核评论" :visible.sync="dialogFormAudit">
+            <el-form :model="auditForm" status-icon ref="auditForm">
+                <el-form-item label="审核结果" :label-width="formLabelWidth" required>
+                    <template>
+                        <el-radio v-model="auditForm.radio" label="yes" @change="auditResult">通过</el-radio>
+                        <el-radio v-model="auditForm.radio" label="no" @change="auditResult">不通过</el-radio>
+                    </template>
+                </el-form-item>
+                <el-form-item v-show="auditForm.show" label="备注" :label-width="formLabelWidth">
+                    <el-input type="textarea" v-model="auditForm.commentRemark" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="auditForm.show" label="" :label-width="formLabelWidth">
+                    <template>
+                        <el-checkbox v-model="auditForm.isEmail">发送邮件</el-checkbox>
+                    </template>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cancel('auditForm')">取 消</el-button>
+                <el-button type="primary" @click="submitFormAudit('auditForm')">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/admin/index"><i class="icon-home"></i> 首页</a></li>
+                        <li class="active">评论管理</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- page start-->
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="adv-table">
+                        <div class="clearfix">
+                            <el-row>
+                                <el-button type="danger" @click="handleDeleteSome"><i class="el-icon-edit-outline"></i>
+                                    批量删除
+                                </el-button>
+                                &nbsp;
+                                <el-select v-model="select" @change="selectOne">
+                                    <el-option value="0" label="全部">全部</el-option>
+                                    <el-option value="1" label="留言板">留言板</el-option>
+                                    <el-option value="2" label="文章评论">文章评论</el-option>
+                                </el-select>
+                                <div class="btn-group pull-right" style="width: 40%;">
+                                    <el-input placeholder="请输入内容" v-model="keyword">
+                                        <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+                                    </el-input>
+                                </div>
+                            </el-row>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <el-table
+                                    ref="multipleTable"
+                                    stripe
+                                    border
+                                    :data="tableData"
+                                    tooltip-effect="dark"
+                                    style="width: 100%"
+                                    @selection-change="handleSelectionChange">
+                                <el-table-column
+                                        align="center"
+                                        type="selection"
+                                        width="50">
+                                </el-table-column>
+                                <el-table-column
+                                        v-if="showID"
+                                        prop="ID"
+                                        label="ID">
+                                </el-table-column>
+                                <el-table-column
+                                        label="评论人"
+                                        width="360">
+                                    <template slot-scope="scope">
+                                        <div class="box-card">
+                                            <div class="text item"><i class="el-icon-user-solid"></i>
+                                                {{scope.row.commentNickname}}
+                                            </div>
+                                            <div class="text item"><i class="el-icon-location"></i>
+                                                {{scope.row.commentIp}} |
+                                                {{scope.row.commentAddress}}
+                                            </div>
+                                            <div class="text item"><i class="el-icon-s-promotion"></i>
+                                                {{scope.row.commentEmail}}
+                                            </div>
+                                            <div class="text item"><i class="el-icon-time"></i>
+                                                {{scope.row.commentTime}}
+                                            </div>
+                                        </div>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        label="评论内容"
+                                        width="600">
+                                    <template slot-scope="scope">
+                                        <div class="comment-from">
+                                            评论自：<a href="javascript:void(0)">{{scope.row.commentFrom == '2' ?
+                                            scope.row.commentForTitle : '留言板'}}</a>
+                                        </div>
+                                        <div>
+                                            <p>{{scope.row.commentContent}}</p>
+                                            <div class="comment-replyContent"
+                                                 v-if="scope.row.commentFather!= ''">
+                                                <div class="reply-item"><i class="icon-quote-left
+"></i><strong>@{{scope.row.commentFatherNickname}}：</strong>
+                                                    <p>{{scope.row.commentFatherContent}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="状态"
+                                        width="180">
+                                    <template slot-scope="scope">
+                                        <el-tag :type="scope.row.commentStatus === '1' ? 'success' : (scope.row.commentStatus === '2' ? 'warning' : 'danger')"
+                                                disable-transitions>{{scope.row.commentStatus == '1' ? '审核通过' :
+                                            (scope.row.commentStatus == '2' ? '待审核' : '审核不通过')}}
+                                        </el-tag>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="操作">
+                                    <template slot-scope="scope">
+                                        <el-button
+                                                size="mini"
+                                                icon="el-icon-position"
+                                                type="primary"
+                                                @click="handleReply(scope.row.id, scope.row.commentNickname, scope.row.commentContent, scope.row.commentFrom, scope.row.commentFor)"
+                                        >回复
+                                        </el-button>
+                                        <el-button
+                                                size="mini"
+                                                icon="el-icon-warning"
+                                                type="warning"
+                                                @click="handleAudit(scope.row.commentStatus, scope.row.commentRemark, scope.row.id)"
+                                        >审核
+                                        </el-button>
+                                        <el-button
+                                                size="mini"
+                                                type="danger"
+                                                icon="el-icon-delete"
+                                                @click="handleDelete(scope.row.id)"
+                                        >删除
+                                        </el-button>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </div>
+                        <div class="row">
+                            <div class="pagination">
+                                <el-pagination background @size-change="handleSizeChange"
+                                               @current-change="handleCurrentChange"
+                                               :current-page="page.pageCode"
+                                               :page-sizes="page.pageOption"
+                                               :page-size="page.pageSize"
+                                               layout="total, sizes, prev, pager, next"
+                                               :total="page.totalPage">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- page end-->
+        </section>
+    </section>
+    <div th:replace="admin/common/footer"></div>
+</section>
+
+<script type="text/javascript" th:replace="admin/common/js"></script>
+
+<!--script for this page-->
+<script th:src="@{/admin/js/comment.js}"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+</body>
+
+</html>

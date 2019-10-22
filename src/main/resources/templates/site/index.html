@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="site/common/head"></head>
+<link th:href="@{/site/css/swiper.min.css}" rel="stylesheet"/>
+<title>Ls'blog</title>
+<body>
+<div class="is-mobile"></div>
+<div th:replace="site/common/loader"></div>
+
+<!-- HEADER -->
+<header class="header-style header-style2">
+    <div class="hamburger-icon3">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="header-content">
+        <div class="row">
+            <div class="col-xs-6 col-sm-2">
+                <a class="logo" href="/">
+                    <img class="logo_30" alt="#"/>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-10">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="hamburger-icon2">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="normal-s">
+                    <ul>
+                        <li class="active">
+                            <a href="/">首页</a>
+                        </li>
+                        <li>
+                            <a href="/list">博客文章</a>
+                        </li>
+                        <li>
+                            <a href="/archives">归档</a>
+                        </li>
+                        <li>
+                            <a href="/about">关于我</a>
+                        </li>
+                        <li>
+                            <a href="/msgboard">留言板</a>
+                        </li>
+                        <li>
+                            <a href="/link">友情链接</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER -->
+
+<!-- OVERLAY-MENU -->
+<div th:replace="site/common/overlay-menu"></div>
+<!-- content -->
+<div id="content-wrapper">
+
+    <div class="skrollr-item square-xs"
+         data-0="top: 215px; left: 180px; -ms-transform: rotate(30deg); -webkit-transform: rotate(30deg); transform: rotate(30deg);"
+         data-400="top: 250px; left: 250px; -ms-transform: rotate(60deg); -webkit-transform: rotate(60deg); transform: rotate(60deg);"></div>
+    <div class="skrollr-item triangle-md"
+         data-0="top: 315px; left: 870px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-400="top: 230px; left: 770px; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);"></div>
+    <div class="skrollr-item triangle-md"
+         data-0="top: 210px; right: 150px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-400="top: 300px; right: 200px; -ms-transform: rotate(60deg); -webkit-transform: rotate(60deg); transform: rotate(60deg);"></div>
+    <div class="skrollr-item square-md"
+         data-0="top: 460px; right: 355px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-400="top: 520px; right: 280px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);-ms-transform: rotate(30deg); -webkit-transform: rotate(30deg); transform: rotate(30deg);"></div>
+    <div class="skrollr-item circle-sm" data-0="top: 675px; left: 400px;" data-600="top: 500px; left: 600px;"></div>
+    <div class="skrollr-item circle-lg" data-0="top: 690px; right: 635px;" data-700="top: 780px; right: 670px;"></div>
+    <div class="skrollr-item square-xs"
+         data-0="top: 750px; right: 190px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-700="top: 900; right: 250px; -ms-transform: rotate(-30deg); -webkit-transform: rotate(-30deg); transform: rotate(-30deg);"></div>
+    <div class="skrollr-item triangle-sm"
+         data-0="top: 1035px; left: 240px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-1200="top: 900px; left: 140px; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);"></div>
+    <div class="skrollr-item triangle-lg"
+         data-0="top: 990px; left: 950px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-1200="top: 1300px; left: 900px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);"></div>
+    <div class="skrollr-item circle-md" data-0="top: 1370px; left: 625px;" data-1200="top: 1200px; left: 725px;"></div>
+    <div class="skrollr-item square-lg"
+         data-0="top: 1360px; right: 325px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-1200="top: 1160px; right: 225px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);"></div>
+    <div class="skrollr-item triangle-sm"
+         data-0="top: 1540px; left: 850px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-1400="top: 1780px; left: 1050px; -ms-transform: rotate(-190deg); -webkit-transform: rotate(-190deg); transform: rotate(-190deg);"></div>
+    <div class="skrollr-item circle-sm" data-0="top: 1665px; left: 290px;" data-1500="top: 1465px; left: 250px;"></div>
+    <div class="skrollr-item square-xs"
+         data-0="top: 1840px; left: 410px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-1500="top: 1570px; left: 610px; -ms-transform: rotate(140deg); -webkit-transform: rotate(140deg); transform: rotate(140deg);"></div>
+    <div class="skrollr-item square-sm"
+         data-0="top: 2040px; left: 630px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"
+         data-1200="top: 1970px; left: 430px; -ms-transform: rotate(-180deg); -webkit-transform: rotate(-180deg); transform: rotate(-180deg);"></div>
+    <div class="skrollr-item circle-lg" data-0="top: 1640px; right: 165px;"
+         data-1200="top: 1540px; right: 265px;"></div>
+    <div class="skrollr-item triangle-md"
+         data-0="top: 1990px; right: 520px; -ms-transform: rotate(30deg); -webkit-transform: rotate(30deg); transform: rotate(30deg);"
+         data-1300="top: 2060px; right: 260px; -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"></div>
+    <div class="empty-space h150-sm h75-xs"></div>
+    <div class="container-fluid-style1">
+        <div class="align-wrapper">
+            <div v-for="article in articleList" class="img-block-wrapper">
+                <div class="empty-space h55-xs h110-lg"></div>
+                <div class="img-block">
+                    <a @click="addView(article.id)" :href="'/article/'+ article.id"><img width="500" height="500" :src="article.articleCoverImg" alt=""></a>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            <a @click="addView(article.id)" class="biggest-1 mouseover-1" :href="'/article/'+article.id">{{article.articleTitle}}</a>
+                            <div class="empty-space h5-xs"></div>
+                            <p class="small-s">{{article.articleClassify}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-space h55-xs h95-sm"></div>
+
+    <!-- footer -->
+    <footer class="footer-style footer-style2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12 text-left">
+                    <a class="logo" href="index.html">
+                        <img class="logo_30" alt="#"/>
+                    </a>
+                    <div class="empty-space h15-xs h0-md"></div>
+                </div>
+                <div class="col-md-6 col-sm-8 col-xs-12">
+                    <nav class="small-2">
+                        <ul>
+                            <li class="footer-nav active">
+                                <a href="/">首页</a>
+                            </li>
+                            <li class="footer-nav">
+                                <a href="/list">博客文章</a>
+                            </li>
+                            <li class="footer-nav">
+                                <a href="/archives">归档</a>
+                            </li>
+                            <li class="footer-nav">
+                                <a href="/about">关于我</a>
+                            </li>
+                            <li class="footer-nav">
+                                <a href="/msgboard">留言板</a>
+                            </li>
+                            <li class="footer-nav">
+                                <a href="/link">友情链接</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="empty-space h20-xs h0-md"></div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="col-xs-12">
+                        <div class="follow">
+                            <a class="social" href="#" target="_blank">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a class="social" href="#" target="_blank">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a class="social" href="#" target="_blank">
+                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
+                            <a class="social" href="#" target="_blank">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-space h35-xs fl"></div>
+            <div th:replace="site/common/footer"></div>
+        </div>
+    </footer>
+</div>
+<!-- content -->
+<script type="text/javascript" th:replace="site/common/js"></script>
+<script type="text/javascript" th:src="@{/site/common/js/skrollr.min.js}"></script>
+<script type="text/javascript" th:src="@{/site/common/js/swiper.jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/site/js/index.js}"></script>
+</body>
+</html>

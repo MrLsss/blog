@@ -1,0 +1,37 @@
+.col-md-8 {
+    float: right;
+}
+
+.tagsinput-primary .bootstrap-tagsinput {
+    margin-bottom: 0;
+}
+
+.bootstrap-tagsinput .label-info {
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    overflow: hidden;
+    margin: 0 5px 5px 0;
+    padding: 6px 10px 6px 14px;
+    transition: 0.25s linear;
+}
+
+.tags-list li {
+    display: block;
+    float: left;
+    margin: 5px 5px 0 0;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #545c63;
+    line-height: 16px;
+    background: rgba(84, 92, 99, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.w-e-text-container {
+    height: 500px !important;
+}

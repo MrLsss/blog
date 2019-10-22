@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="site/common/head"></head>
+<link th:href="@{/site/css/my.css}" rel="stylesheet"/>
+<title>Ls'blog</title>
+
+<body>
+<div th:replace="site/common/loader"></div>
+
+<div th:replace="site/common/header"></div>
+
+<div th:replace="site/common/overlay-menu"></div>
+
+<!-- content -->
+<div id="content-wrapper">
+    <div class="empty-space h45-xs h65-sm"></div>
+    <div class="container-fluid-style2">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+                <article>
+                    <h1 class="h1">留言板</h1>
+                    <div class="empty-space h25-xs"></div>
+                    <p class="normal-l grey-dark">文明留言...</p>
+                    <p class="normal-l grey-dark">留言审核通过后方可显示</p>
+                </article>
+            </div>
+        </div>
+        <div class="empty-space h155-md h60-xs"></div>
+        <div class="contacts">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="empty-space h0-sm h40-md fl"></div>
+                    <div class="section">
+                        <div class="empty-space h10-xs"></div>
+                        <ul class="normal">
+                            <li v-for="dec in my_dec">
+                                <a href="javascript:void(0)">{{dec}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="empty-space h35-xs h40-md fl"></div>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <div class="empty-space h0-xs h40-md fl"></div>
+                    <div class="section">
+                        <div class="empty-space h10-xs"></div>
+                        <ul class="normal">
+                            <li><a href="javascript:void(0)"><i class="fa fa-qq"></i> ：{{my_qq}}</a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-envelope"></i> ：{{my_email}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="empty-space h0-xs h40-md fl"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-wrapper text-center">
+                        <div class="empty-space h50-xs h40-md"></div>
+                        <div class="input-wrapper">
+                            <div class="input-style">
+                                <input id="inputName" v-model="commentForm.nickname" name="name" type="text"
+                                       class="input">
+                                <label for="inputName">昵称</label>
+                            </div>
+                            <div class="input-style">
+                                <input id="inputEmail" v-model="commentForm.email" name="email" type="text"
+                                       class="input">
+                                <label for="inputEmail">邮箱</label>
+                            </div>
+                            <div class="input-style textarea">
+                                <textarea id="inputMessage" v-model="commentForm.content" name="message"
+                                          class="input"></textarea>
+                                <label for="inputMessage">留言内容</label>
+                            </div>
+                        </div>
+                        <div class="empty-space h20-xs fl"></div>
+                        <button class="btn-style1 style2 center-block" @click="submitComment" type="submit">
+                            <span>提交</span></button>
+                        <div class="empty-space h50-xs"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="empty-space h50-xs h105-md"></div>
+        <div class="row" id="comment">
+            <div class="col-md-11 col-md-offset-1">
+                <div class="empty-space h30-xs h60-md fl"></div>
+                <div class="comments-wrapper" style="width: 100%;">
+                    <div v-for="comment in commentsList">
+                        <div class="empty-space h25-xs h45-md"></div>
+                        <div class="comment">
+                            <img src="http://lsblog.vip/user.png" alt="">
+                            <div class="description">
+                                <span class="big">{{comment.node.commentNickname}}</span>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p>{{comment.node.commentTime}}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="btn-style1" @click="clickReply(comment.node.id);"
+                                           href="javascript:void(0);"><span>回复</span></a>
+                                    </div>
+                                </div>
+                                <div class="empty-space h10-xs"></div>
+                                <p class="comment-content">{{comment.node.commentContent}}</p>
+                                <div v-show="replyBoxShow === comment.node.id" class="row" style="width: 100%;">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div class="form-wrapper style2">
+                                                    <span><i class="fa fa-times" @click="close"
+                                                             style="cursor: pointer;"></i></span>
+                                            <div class="empty-space h30-xs"></div>
+                                            <div class="input-wrapper">
+                                                <div class="input-style">
+                                                    <input placeholder="昵称" name="replyName"
+                                                           v-model="replyForm.nickname"
+                                                           type="text" class="input" required/>
+                                                </div>
+                                                <div class="input-style">
+                                                    <input placeholder="邮箱" v-model="replyForm.email"
+                                                           name="replyEmail" type="text" class="input"
+                                                           required/>
+                                                </div>
+                                                <div class="input-style textarea">
+                                                                <textarea placeholder="来说几句吧..."
+                                                                          v-model="replyForm.content"
+                                                                          name="replyMessage" class="input"
+                                                                          required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="empty-space h20-xs fl"></div>
+                                            <button class="btn-style1 style2" @click="submitReply">
+                                                <span>发送</span>
+                                            </button>
+                                            <div class="empty-space h30-md"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-space h10-md"></div>
+
+                            <div class="comment" v-if="comment.childNodes.length > 0">
+                                <div class="col-md-12">
+                                    <div class="reply-list">
+                                        <div class="reply" v-for="reply in comment.childNodes">
+                                            <div>
+                                                <a href="javascript:void(0);">{{reply.commentNickname}}： </a>回复&nbsp;
+                                                <a href="javascript:void(0);">{{reply.commentFatherNickname}} </a>&nbsp;
+                                                <span class="reply-content">{{reply.commentContent}}</span>
+                                            </div>
+                                            <p>
+                                                <span>{{reply.commentTime}}</span>
+                                                <span @click="clickReply(reply.id);"
+                                                      class="reply-replybtn">回复</span>
+                                            </p>
+                                            <div v-show="replyBoxShow === reply.id" class="row"
+                                                 style="width: 100%;">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <div class="form-wrapper style2">
+                                                                <span><i class="fa fa-times" @click="close"
+                                                                         style="cursor: pointer;"></i></span>
+                                                        <div class="empty-space h30-xs"></div>
+                                                        <div class="input-wrapper">
+                                                            <div class="input-style">
+                                                                <input placeholder="昵称"
+                                                                       v-model="replyForm.nickname"
+                                                                       name="replyName" type="text"
+                                                                       class="input" required/>
+                                                            </div>
+                                                            <div class="input-style">
+                                                                <input placeholder="邮箱"
+                                                                       v-model="replyForm.email"
+                                                                       name="replyEmail" type="text"
+                                                                       class="input" required/>
+                                                            </div>
+                                                            <div class="input-style textarea">
+                                                                        <textarea v-model="replyForm.content"
+                                                                                  placeholder="来说几句吧..."
+                                                                                  name="replyMessage" class="input"
+                                                                                  required></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="empty-space h20-xs fl"></div>
+                                                        <button class="btn-style1 style2" @click="submitReply">
+                                                            <span>发送</span></button>
+                                                        <div class="empty-space h30-md"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="empty-space h10-xs h40-md fl"></div>
+    <!-- footer -->
+    <footer class="footer-style">
+        <div class="container">
+            <div th:replace="site/common/footer"></div>
+        </div>
+    </footer>
+    <!-- footer -->
+
+</div>
+<!-- content -->
+<script type="text/javascript" th:replace="site/common/js"></script>
+<script type="text/javascript" th:src="@{/site/js/msgboard.js}"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+
+</body>
+
+</html>

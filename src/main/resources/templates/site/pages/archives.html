@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="site/common/head"></head>
+<link rel="stylesheet" th:href="@{/site/css/index.css}"/>
+<title>Ls'blog</title>
+<body>
+<div th:replace="site/common/loader"></div>
+
+<div th:replace="site/common/header"></div>
+
+<div th:replace="site/common/overlay-menu"></div>
+
+<!-- content -->
+<div id="content-wrapper">
+
+    <div class="empty-space h45-xs h65-sm"></div>
+    <div class="container-fluid-style2">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <article>
+                    <h1 class="h1">归档</h1>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div id="main" class="content">
+                <div class="container">
+                    <section class="post_content" itemscope>
+                        <header class="post_header">
+                            <h1 class="post_title">归档统计</h1>
+                        </header>
+                        <div class="post-Archive">
+                            <div id="archivesList" th:fragment="archivesList">
+                                <div th:each="archive:${archivesList}" class="archive-title"
+                                     th:id="'arti-'+${archive.date}">
+                                    <h3>[[${archive.date}]]</h3>
+                                    <div th:class="'archives archives-'+${archive.date}" th:data-date="${archive.date}">
+                                        <div class="brick" th:each="article : ${archive.articleList}">
+                                            <a th:onclick="|addView(${article.id})|" th:href="'/article/'+${article.id}"><span class="time">[[${article.articleCreationTime}]]</span>[[${article.articleTitle}]]</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="empty-space h10-xs h40-md fl"></div>
+    <!-- footer -->
+    <footer class="footer-style">
+        <div class="container">
+            <div th:replace="site/common/footer"></div>
+        </div>
+    </footer>
+    <!-- footer -->
+</div>
+<script type="text/javascript" th:replace="site/common/js"></script>
+<script type="text/javascript" th:src="@{/site/js/archives.js}"></script>
+
+</body>
+
+</html>

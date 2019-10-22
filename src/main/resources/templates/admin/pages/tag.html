@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common/head"></head>
+<title>OIA后台管理系统</title>
+<body>
+<section id="container">
+    <div th:replace="admin/common/header"></div>
+    <div th:replace="admin/common/sidebar"></div>
+    <!-- 添加分类 -->
+    <div>
+        <el-dialog width="30%" title="添加标签" :visible.sync="dialogFormAdd">
+            <el-form :model="addForm" status-icon :rules="rules" ref="addForm">
+                <el-form-item label="标签名称" :label-width="formLabelWidth" prop="tag_name" required>
+                    <el-input v-model="addForm.tag_name"  autocomplete="off" placeholder="请输入标签名称"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cancel('addForm')">取 消</el-button>
+                <el-button type="primary" @click="add('addForm')">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+
+    <div>
+        <el-dialog width="30%" title="编辑标签" :visible.sync="dialogFormEdit">
+            <el-form :model="editForm" status-icon :rules="rules" ref="editForm">
+                <el-form-item label="标签名称" :label-width="formLabelWidth" prop="tag_name" required>
+                    <el-input v-model="editForm.tag_name"  autocomplete="off" placeholder="请输入标签名称"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cancel('editForm')">取 消</el-button>
+                <el-button type="primary" @click="save('editForm')">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/admin/index"><i class="icon-home"></i> 首页</a></li>
+                        <li class="active">标签管理</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- page start-->
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="adv-table">
+                        <div class="clearfix">
+                            <el-row>
+                                <el-button type="primary" @click="handleAdd"><i class="el-icon-edit-outline"></i> 添加标签</el-button>
+                                <el-button type="danger" @click="handleDeleteSome"><i class="el-icon-delete"></i> 批量删除
+                                </el-button>
+                                <div class="btn-group pull-right" style="width: 40%;">
+                                    <el-input placeholder="请输入内容" v-model="keyword">
+                                        <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+                                    </el-input>
+                                </div>
+                            </el-row>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <el-table
+                                    ref="multipleTable"
+                                    stripe
+                                    border
+                                    :data="tableData"
+                                    tooltip-effect="dark"
+                                    style="width: 100%"
+                                    @selection-change="handleSelectionChange">
+                                <el-table-column
+                                        align="center"
+                                        type="selection"
+                                        width="50">
+                                </el-table-column>
+                                <el-table-column
+                                        v-if="showID"
+                                        prop="ID"
+                                        label="ID">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="tag_name"
+                                        align="center"
+                                        label="标签名称"
+                                        width="360">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="tag_creation_time"
+                                        align="center"
+                                        label="创建时间"
+                                        width="270">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="tag_last_update_time"
+                                        align="center"
+                                        label="更新时间"
+                                        width="270">
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="操作">
+                                    <template slot-scope="scope">
+                                        <el-button
+                                                size="mini"
+                                                icon="el-icon-edit"
+                                                type="primary"
+                                                @click="handleEdit(scope.row.ID, scope.row.tag_name)"
+                                        >编辑
+                                        </el-button>
+                                        <el-button
+                                                size="mini"
+                                                type="danger"
+                                                icon="el-icon-delete"
+                                                @click="handleDelete(scope.row.ID)"
+                                        >删除
+                                        </el-button>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </div>
+                        <div class="row">
+                            <div class="pagination">
+                                <el-pagination background @size-change="handleSizeChange"
+                                               @current-change="handleCurrentChange"
+                                               :current-page="page.pageCode"
+                                               :page-sizes="page.pageOption"
+                                               :page-size="page.pageSize"
+                                               layout="total, sizes, prev, pager, next"
+                                               :total="page.totalPage">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- page end-->
+        </section>
+    </section>
+    <div th:replace="admin/common/footer"></div>
+</section>
+
+<script type="text/javascript" th:replace="admin/common/js"></script>
+
+<!--script for this page-->
+<script th:src="@{/admin/js/tag.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="site/common/head"></head>
+<title>Ls'blog</title>
+<body>
+<div th:replace="site/common/loader"></div>
+
+<div th:replace="site/common/header"></div>
+
+<div th:replace="site/common/overlay-menu"></div>
+
+<!-- content -->
+<div id="content-wrapper">
+    <div class="empty-space h45-xs h65-sm"></div>
+    <div class="container-fluid-style2">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <article>
+                    <h1 class="h1">文章列表</h1>
+                </article>
+            </div>
+        </div>
+        <div class="empty-space h15-xs h45-sm"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-menu">
+                    <ul th:fragment="classifyList" id="classifyList">
+                        <li th:each="classify : ${classifyList}"><a th:id="'classify-' + ${classify.id}"
+                                                                    href="javascript:void(0);"
+                                                                    th:onclick="selectClassify([[${classify.id}]])"><span>[[${classify.classifyName}]]</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="empty-space h40-xs h60-md"></div>
+
+        <!--left-right -->
+        <div class="left-right" id="articleList" th:fragment="articleList">
+            <div class="row" th:each="article,stat : ${articleList}" th:classappend="'classify-' + ${article.articleClassifyID}">
+                <div class="col-md-6" th:classappend="${stat.even} ? 'pull-right' : ''"></div>
+                <div class="col-md-6">
+                    <div class="clip" th:classappend="${stat.even} ? 'right-side' : 'left-side'">
+                        <a th:onclick="|addView(${article.id})|" th:href="'/article/'+${article.id}" class="bg"
+                           th:style="'background-image:url(' + ${article.articleCoverImg} + ');'"></a>
+                    </div>
+                    <div class="row">
+                        <div class="empty-space h30-xs h30-sm h60-md"></div>
+                        <div class="col-md-12 text-center">
+                            <a class="btn-style3" href="javascript:void(0);" th:onclick="selectClassify([[${article.articleClassifyID}]])">[[${article.articleClassify}]]</a>
+                        </div>
+                        <div class="empty-space h15-xs fl"></div>
+                        <div class="col-md-12 text-center">
+                            <div class="autor small-1">
+                                <span>[[${article.articleAuthor}]]</span>
+                                <span>[[${article.articleCreationTime}]]</span> [[${article.articleView}]] <i
+                                    class="fa fa-comments-o"></i> [[${article.articleComment}]] <i
+                                    class="fa fa-eye"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empty-space h15-xs"></div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div class="section">
+                                <div class="h5">
+                                        <span class="mouseover-2">
+                                            <a th:onclick="|addView(${article.id})|" th:href="'/article/'+${article.id}">[[${article.articleTitle}]]</a>
+                                        </span>
+                                </div>
+                                <p>[[${article.articleDec}]]</p>
+                            </div>
+                        </div>
+                        <div class="empty-space h60-xs fl"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-space h15-xs h15-sm h90-md"></div>
+            <div class="page-pagination content-menu">
+                <ul id="pagination">
+                    <li th:if="${current != 1}">
+                        <a href="javascript:void(0)" th:onclick="selectPage([[${current}]]-1)"><span>上一页</span></a>
+                    </li>
+                    <li th:each="page : ${pageIndex}" th:if="${pages != 1}">
+                        <a th:id="'page-'+${page}" href="javascript:void(0)" th:onclick="selectPage([[${page}]])"><span>[[${page}]]</span></a>
+                    </li>
+                    <li th:if="${current != pages}">
+                        <a href="javascript:void(0)" th:onclick="selectPage([[${current}]]+1)"><span>下一页</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end container-fluid-style2 -->
+    <div class="empty-space h0-xs h30-sm fl"></div>
+    <!-- footer -->
+    <footer class="footer-style">
+        <div class="container">
+            <div th:replace="site/common/footer"></div>
+        </div>
+    </footer>
+    <!-- footer -->
+
+</div>
+<!-- content -->
+
+<script type="text/javascript" th:replace="site/common/js"></script>
+<script type="text/javascript" th:src="@{/site/js/list.js}"></script>
+</body>
+
+</html>

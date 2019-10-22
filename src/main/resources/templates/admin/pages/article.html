@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common/head"></head>
+<title>OIA后台管理系统</title>
+<body>
+<section id="container">
+    <div th:replace="admin/common/header"></div>
+    <div th:replace="admin/common/sidebar"></div>
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/admin/index"><i class="icon-home"></i> 首页</a></li>
+                        <li class="active">文章管理</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- page start-->
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="adv-table">
+                        <div class="clearfix">
+                            <el-row>
+                                <a href="/admin/article/publish" style="margin-right: 10px;">
+                                    <el-button type="primary"><i class="el-icon-edit-outline"></i> 发表文章</el-button>
+                                </a>
+                                <el-button type="danger" @click="handleDeleteSome"><i class="el-icon-delete"></i> 批量删除
+                                </el-button>
+                                &nbsp;
+                                <el-select v-model="select" @change="selectOne">
+                                    <el-option
+                                            v-for="item in allClassify"
+                                            :key="item.value"
+                                            :label="item.label"
+                                            :value="item.value">
+                                    </el-option>
+                                </el-select>
+                                <div class="btn-group pull-right" style="width: 40%;">
+                                    <el-input placeholder="请输入文章标题关键词" v-model="keyword">
+                                        <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+                                    </el-input>
+                                </div>
+                            </el-row>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <el-table
+                                    ref="multipleTable"
+                                    stripe
+                                    border
+                                    :data="tableData"
+                                    tooltip-effect="dark"
+                                    style="width: 100%"
+                                    @selection-change="handleSelectionChange">
+                                <el-table-column
+                                        align="center"
+                                        type="selection"
+                                        width="50">
+                                </el-table-column>
+                                <el-table-column
+                                        v-if="showID"
+                                        label="ID">
+                                    <template slot-scope="scope">
+                                        {{scope.row.id}}
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="文章标题"
+                                        width="360"
+                                >
+                                    <template slot-scope="scope">
+                                        <el-tag
+                                                :type="scope.row.isOwn === '1' ? 'danger' : 'success'"
+                                                disable-transitions>{{scope.row.isOwn == '1' ? '原' : '转'}}
+                                        </el-tag>
+                                        {{scope.row.articleTitle}}
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        prop="articleClassify"
+                                        align="center"
+                                        label="所属分类"
+                                        width="170">
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="首页"
+                                        width="80">
+                                    <template slot-scope="scope">
+                                        <el-switch @change="changeMain(scope.row.id)"
+                                                v-model="scope.row.isMain">
+                                        </el-switch>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="推荐"
+                                        width="80">
+                                    <template slot-scope="scope">
+                                        <el-switch @change="changeRec(scope.row.id)"
+                                                v-model="scope.row.isRec">
+                                        </el-switch>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        prop="articleView"
+                                        align="center"
+                                        label="浏览"
+                                        width="80">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="articleComment"
+                                        align="center"
+                                        label="评论"
+                                        width="80">
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="状态"
+                                        width="100">
+                                    <template slot-scope="scope">
+                                        <el-tag
+                                                :type="scope.row.articleStatus === '1' ? 'success' : 'warning'"
+                                                disable-transitions>{{scope.row.articleStatus == '1' ? '已发表' : '草稿'}}
+                                        </el-tag>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column
+                                        prop="articleCreationTime"
+                                        align="center"
+                                        label="发布时间"
+                                        width="180">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="articleLastUpdateTime"
+                                        align="center"
+                                        label="更新时间"
+                                        width="180">
+                                </el-table-column>
+                                <el-table-column
+                                        align="center"
+                                        label="操作">
+                                    <template slot-scope="scope">
+                                        <a :href="'/admin/article/edit/' + scope.row.id" style="margin-right: 5px;">
+                                            <el-button
+                                                    size="mini"
+                                                    icon="el-icon-edit"
+                                                    type="primary"
+                                            >编辑
+                                            </el-button>
+                                        </a>
+                                        <el-button
+                                                size="mini"
+                                                type="danger"
+                                                icon="el-icon-delete"
+                                                @click="handleDelete(scope.row.id)"
+                                        >删除
+                                        </el-button>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </div>
+                        <div class="row">
+                            <div class="pagination">
+                                <el-pagination background @size-change="handleSizeChange"
+                                               @current-change="handleCurrentChange"
+                                               :current-page="page.pageCode"
+                                               :page-sizes="page.pageOption"
+                                               :page-size="page.pageSize"
+                                               layout="total, sizes, prev, pager, next"
+                                               :total="page.totalPage">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- page end-->
+        </section>
+    </section>
+    <div th:replace="admin/common/footer"></div>
+</section>
+
+<script type="text/javascript" th:replace="admin/common/js"></script>
+
+<!--script for this page-->
+<script th:src="@{/admin/js/article.js}"></script>
+
+</body>
+
+</html>

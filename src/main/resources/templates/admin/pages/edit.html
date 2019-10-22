@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common/head"></head>
+<title>OIA后台管理系统</title>
+<link rel="stylesheet" th:href="@{/admin/lib/bootstrap-fileupload/bootstrap-fileupload.css}"/>
+<link rel="stylesheet" th:href="@{/admin/lib/markdown/css/editormd.css}"/>
+<link rel="stylesheet" th:href="@{/admin/common/css/bootstrap-tagsinput.css}"/>
+<link rel="stylesheet" th:href="@{/admin/common/css/bootstrap-reset.css}"/>
+<link rel="stylesheet" th:href="@{/admin/css/edit.css}"/>
+<body>
+<section id="container">
+    <div th:replace="admin/common/header"></div>
+    <div th:replace="admin/common/sidebar"></div>
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--breadcrumbs start -->
+                    <ul class="breadcrumb">
+                        <li><a href="/admin/index"><i class="icon-home"></i> 首页</a></li>
+                        <li><a href="/admin/article"><i class="icon-book"></i> 文章管理</a></li>
+                        <li> 编辑文章</li>
+                    </ul>
+                    <!--breadcrumbs end -->
+                </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+                <section class="panel">
+                    <div class="panel-body">
+                        <el-card class="box-card">
+                            <el-form :model="articleForm">
+                                <el-row :gutter="30">
+                                    <el-col :lg="5" :span="5">
+                                        <el-form-item>
+                                            <el-upload
+                                                    :action="coverUrl"
+                                                    name="file"
+                                                    :limit="1"
+                                                    :on-exceed="onExceed"
+                                                    :before-upload="beforeUpload"
+                                                    :on-preview="handlePreview"
+                                                    :on-success="handleSuccess"
+                                                    :on-remove="handleRemove"
+                                                    :file-list="articleForm.articleCoverImg"
+                                                    list-type="picture">
+                                                <el-button size="small" type="primary">点击上传封面</el-button>
+                                                <div slot="tip" class="el-upload__tip">只能上传JPG/GIF/PNG/BMP文件，且不超过2M
+                                                </div>
+                                            </el-upload>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="6" :span="6">
+                                        <el-form-item>
+                                            <el-input placeholder="请输入标题" v-model="articleForm.articleTitle">
+                                                <template slot="prepend">标题</template>
+                                                {{articleForm.articleTitle}}
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="6" :span="6">
+                                        <el-form-item>
+                                            <el-input placeholder="请输入作者" v-model="articleForm.articleAuthor">
+                                                <template slot="prepend">作者</template>
+                                                {{articleForm.articleAuthor}}
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="6" :span="6">
+                                        <el-form-item>
+                                            <el-select @change="selectClassify" style="width: 100%;" v-model="articleForm.articleClassify"
+                                                       placeholder="请选择分类">
+                                                <el-option
+                                                        v-for="item in classify"
+                                                        :key="item.value"
+                                                        :label="item.label"
+                                                        :value="item.value">
+                                                </el-option>
+                                            </el-select>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="6" :span="6">
+                                        <el-form-item>
+                                            <input placeholder="请输入标签" name="tagsinput" id="tagsinputval"
+                                                   class="tagsinput" data-role="tagsinput"
+                                                   v-model="articleTag"/>
+                                            <ul id="tags-list" class="list-unstyled list-inline tags-list">
+                                                <li v-for="item in tags" @click="selectTag(item.ID, item.tag_name)">
+                                                    {{item.tag_name}}
+                                                </li>
+                                            </ul>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="6" :span="6">
+                                        <el-form-item>
+                                            <el-input type="textarea" placeholder="请输入简介"
+                                                      v-model="articleForm.articleDec">
+                                                <template slot="prepend">简介</template>
+                                                {{articleForm.articleDec}}
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="1" :span="1">
+                                        <el-form-item>
+                                            <template>
+                                                <el-checkbox v-model="articleForm.isOwn">原创</el-checkbox>
+                                            </template>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :lg="6" :span="6">
+                                        <el-form-item>
+                                            <el-input v-show="!articleForm.isOwn" placeholder="请输入转载地址"
+                                                      v-model="articleForm.articleFrom">
+                                                <template slot="prepend">转载地址</template>
+                                                {{articleForm.articleFrom}}
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                </el-row>
+                                <div style="margin-left: 50px;">
+                                    <el-radio v-model="editorTool" @change="selectEditorTool" label="1">markdown编辑器
+                                    </el-radio>
+                                    <el-radio v-model="editorTool" @change="selectEditorTool" label="2">富文本编辑器
+                                    </el-radio>
+                                </div>
+                                <div v-show="editorTool === '1'" id="markdown" class="form-group col-md-12"
+                                     style="margin-left: 15px;">
+                                    <!--markdown-->
+                                    <div id="content-editormd" class="form-group">
+                                    <textarea style="display:none;" class="form-control"
+                                              id="content-editormd-markdown-doc"
+                                              name="content-editormd-markdown-doc">{{articleForm.articleContentType === '1' ? articleForm.articleContent : ''}}</textarea>
+                                    </div>
+                                </div>
+                                <div v-show="editorTool === '2'" id="text" class="form-group col-md-12"
+                                     style="margin-left: 1px;">
+                                    <!-- wangEditor -->
+                                    <div id="editor" class="form-group">
+                                    </div>
+                                </div>
+                                <div style="float: right;">
+                                    <el-form-item>
+                                        <el-button type="danger" @click="publish">发表文章</el-button>
+                                    </el-form-item>
+                                </div>
+                            </el-form>
+                        </el-card>
+                    </div>
+                </section>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <div th:replace="admin/common/footer"></div>
+</section>
+
+<script type="text/javascript" th:replace="admin/common/js"></script>
+
+<!--script for this page-->
+<script th:src="@{/admin/common/js/ajaxfileupload.js}"></script>
+<script th:src="@{/admin/common/js/bootstrap-tagsinput.min.js}"></script>
+
+<script th:src="@{/admin/lib/wangEditor/wangEditor.min.js}"></script>
+
+<script th:src="@{/admin/lib/markdown/editormd.min.js}"></script>
+
+<script th:src="@{/admin/js/edit.js}"></script>
+</body>
+
+</html>

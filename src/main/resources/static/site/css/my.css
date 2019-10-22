@@ -1,0 +1,17 @@
+.reply-list {
+    border-left: 3px solid #ccc;
+    padding-left: 7px;
+}
+
+.reply {
+    border-bottom: 1px dashed #ccc;
+}
+
+.comment-content, .reply-content{
+    color: #000;
+}
+
+.reply-replybtn {
+    padding-left: 2em; 
+    cursor: pointer;
+}
