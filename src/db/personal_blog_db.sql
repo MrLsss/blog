@@ -172,7 +172,7 @@ CREATE TABLE `t_blog_siteinfo`  (
 -- ----------------------------
 -- Records of t_blog_siteinfo
 -- ----------------------------
-INSERT INTO `t_blog_siteinfo` VALUES (1, '刘帅的个人博客', '欢迎来到刘帅的个人博客', 'http://lsblog.vip', 'http://lsblog.vip/admin', 'http://lsblog.vip/log_30.png', 'http://lsblog.vip/logo.png', '2019 © liushuai', '鄂ICP备19001900号');
+INSERT INTO `t_blog_siteinfo` VALUES (1, '个人博客', '欢迎来到个人博客', 'http://lsblog.vip', 'http://lsblog.vip/admin', 'http://lsblog.vip/log_30.png', 'http://lsblog.vip/logo.png', '2019 © liushuai', '鄂ICP备19001900号');
 
 -- ----------------------------
 -- Table structure for t_blog_sitestatistics
