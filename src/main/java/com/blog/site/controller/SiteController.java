@@ -77,7 +77,6 @@ public class SiteController {
 
     /**
      * 标签下的文章列表
-     *
      * @param id
      * @return
      */
@@ -108,7 +107,6 @@ public class SiteController {
 
     /**
      * 获得文章详细信息
-     *
      * @param id
      * @param model
      * @return
@@ -133,7 +131,6 @@ public class SiteController {
 
     /**
      * 获取文章评论
-     *
      * @param id
      * @return
      */
@@ -146,7 +143,6 @@ public class SiteController {
 
     /**
      * 获取推荐和热门文章
-     *
      * @param model
      * @return
      */
@@ -161,7 +157,6 @@ public class SiteController {
 
     /**
      * 获取网站logo
-     *
      * @param
      * @return
      */
@@ -174,7 +169,6 @@ public class SiteController {
 
     /**
      * 获取站长信息
-     *
      * @return
      */
     @GetMapping("/getMasterInfo")
@@ -186,7 +180,6 @@ public class SiteController {
 
     /**
      * 获取主页文章列表
-     *
      * @param
      * @return
      */
@@ -227,7 +220,6 @@ public class SiteController {
 
     /**
      * 获取归档数据
-     *
      * @return
      */
     @GetMapping("/getArchives")
@@ -239,7 +231,6 @@ public class SiteController {
 
     /**
      * 获取友链数据
-     *
      * @param model
      * @return
      */
@@ -252,19 +243,18 @@ public class SiteController {
 
     /**
      * 新增文章回复
-     *
      * @return
      */
     @PostMapping("/addArticleReply")
     @ResponseBody
     public Result addArticleReply(@RequestParam(value = "pid") String pid,
-                                  @RequestParam(value = "nickname") String nickname,
-                                  @RequestParam(value = "email") String email,
-                                  @RequestParam(value = "content") String content,
-                                  @RequestParam(value = "comment_from") String commentFrom,
-                                  @RequestParam(value = "comment_for") String commentFor,
-                                  @RequestParam(value = "address") String address,
-                                  HttpServletRequest request) {
+                           @RequestParam(value = "nickname") String nickname,
+                           @RequestParam(value = "email") String email,
+                           @RequestParam(value = "content") String content,
+                           @RequestParam(value = "comment_from") String commentFrom,
+                           @RequestParam(value = "comment_for") String commentFor,
+                           @RequestParam(value = "address") String address,
+                           HttpServletRequest request) {
         Comment comment = new Comment();
         comment.setId(AccountUtil.getUUID());
         comment.setCommentNickname(nickname);
@@ -295,12 +285,12 @@ public class SiteController {
     @PostMapping("/addArticleComment")
     @ResponseBody
     public Result addArticleComment(@RequestParam(value = "nickname") String nickname,
-                                    @RequestParam(value = "email") String email,
-                                    @RequestParam(value = "content") String content,
-                                    @RequestParam(value = "comment_from") String commentFrom,
-                                    @RequestParam(value = "comment_for") String commentFor,
-                                    @RequestParam(value = "address") String address,
-                                    HttpServletRequest request) {
+                             @RequestParam(value = "email") String email,
+                             @RequestParam(value = "content") String content,
+                             @RequestParam(value = "comment_from") String commentFrom,
+                             @RequestParam(value = "comment_for") String commentFor,
+                             @RequestParam(value = "address") String address,
+                             HttpServletRequest request) {
         Comment comment = new Comment();
         comment.setId(AccountUtil.getUUID());
         comment.setCommentNickname(nickname);
@@ -330,7 +320,6 @@ public class SiteController {
 
     /**
      * 获取留言板数据
-     *
      * @return
      */
     @GetMapping("/getMsgboardComment")
@@ -379,7 +368,6 @@ public class SiteController {
 
     /**
      * 留言板回复
-     *
      * @param data
      * @param request
      * @return
@@ -387,7 +375,7 @@ public class SiteController {
     @PostMapping("/addMsgboardReply")
     @ResponseBody
     public Result addMsgboardReply(@RequestBody String data,
-                                   HttpServletRequest request) {
+                                     HttpServletRequest request) {
         JSONObject jsonObject = JsonUtil.String2JSON(data);
 
         String address = jsonObject.getString("address");
