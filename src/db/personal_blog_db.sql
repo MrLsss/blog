@@ -1,19 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : 47.100.15.146
- Source Server Type    : MySQL
- Source Server Version : 50725
- Source Host           : 47.100.15.146:3306
- Source Schema         : personal_blog_db
-
- Target Server Type    : MySQL
- Target Server Version : 50725
- File Encoding         : 65001
-
- Date: 22/10/2019 11:02:19
-*/
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -188,7 +172,7 @@ CREATE TABLE `t_blog_siteinfo`  (
 -- ----------------------------
 -- Records of t_blog_siteinfo
 -- ----------------------------
-INSERT INTO `t_blog_siteinfo` VALUES (1, '刘帅的个人博客', '欢迎来到刘帅的个人博客', 'http://lsblog.vip', 'http://lsblog.vip/admin', 'http://lsblog.vip/log_30.png', 'http://lsblog.vip/logo.png', '2019 © liushuai', '鄂ICP备19001900号');
+INSERT INTO `t_blog_siteinfo` VALUES (1, '个人博客', '欢迎来到个人博客', 'http://lsblog.vip', 'http://lsblog.vip/admin', 'http://lsblog.vip/log_30.png', 'http://lsblog.vip/logo.png', '2019 © liushuai', '鄂ICP备19001900号');
 
 -- ----------------------------
 -- Table structure for t_blog_sitestatistics

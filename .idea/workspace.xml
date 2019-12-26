@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="483a1802-62fa-4c76-80fc-ad04f5918b4d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Mybatis Mapper" />
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/develop_tools/Maven/maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\develop_tools\Maven\maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+  </component>
+  <component name="ProjectId" id="1Oe0ijzeSykgo4lHuLjWV14CA8Z" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="MyBatisLogPluginindexNum" value="75" />
+    <property name="MyBatisLogPluginparameters" value="Parameters:" />
+    <property name="MyBatisLogPluginpreparing" value="Preparing:" />
+    <property name="MyBatisLogPluginrunning" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564305350026" />
+    <property name="database.console.LAST_STATE" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.3873563" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="GrepConsole" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\site\css" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\site\common\js" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\site\common" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\templates\site\pages" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\templates\admin\pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDEA_Project\blog\src\db" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\public\img" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\site\css" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\site\fonts" />
+      <recent name="D:\IDEA_Project\blog\src\main\resources\static\site" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.blog.admin.service.impl" />
+      <recent name="com.blog.admin.common.service.impl" />
+      <recent name="com.blog.admin.service" />
+    </key>
+  </component>
+  <component name="RestServicesNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="Found 86 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+        </path>
+        <path>
+          <item name="Found 86 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="blog" type="c588b436:RestServiceStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="RunManager">
+    <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="blog" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.blog.BlogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\liushuai\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="483a1802-62fa-4c76-80fc-ad04f5918b4d" name="Default Changelist" comment="" />
+      <created>1562896426579</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562896426579</updated>
+      <workItem from="1562896430492" duration="5479000" />
+      <workItem from="1562901979632" duration="261000" />
+      <workItem from="1562911780778" duration="8492000" />
+      <workItem from="1562945597032" duration="8842000" />
+      <workItem from="1562994750819" duration="34117000" />
+      <workItem from="1563080987456" duration="12453000" />
+      <workItem from="1563105135122" duration="16401000" />
+      <workItem from="1563154034615" duration="8650000" />
+      <workItem from="1563170565110" duration="4834000" />
+      <workItem from="1563176753872" duration="233000" />
+      <workItem from="1563177053793" duration="277000" />
+      <workItem from="1563177822783" duration="1760000" />
+      <workItem from="1563183929442" duration="69000" />
+      <workItem from="1563238091515" duration="2507000" />
+      <workItem from="1563251453098" duration="3429000" />
+      <workItem from="1563275002967" duration="6059000" />
+      <workItem from="1563327029050" duration="337000" />
+      <workItem from="1563355012616" duration="13334000" />
+      <workItem from="1563410544145" duration="42740000" />
+      <workItem from="1563497227901" duration="7692000" />
+      <workItem from="1563504945042" duration="2165000" />
+      <workItem from="1563507114666" duration="46000" />
+      <workItem from="1563507219369" duration="272000" />
+      <workItem from="1563507508310" duration="12000" />
+      <workItem from="1563507673916" duration="77000" />
+      <workItem from="1563507771162" duration="7588000" />
+      <workItem from="1563517346800" duration="2013000" />
+      <workItem from="1563519706061" duration="9226000" />
+      <workItem from="1563529846511" duration="13060000" />
+      <workItem from="1563553040785" duration="5229000" />
+      <workItem from="1563602125962" duration="6479000" />
+      <workItem from="1563609790934" duration="960000" />
+      <workItem from="1563610889502" duration="61000" />
+      <workItem from="1563610973254" duration="111000" />
+      <workItem from="1563611155993" duration="14908000" />
+      <workItem from="1563627081164" duration="5524000" />
+      <workItem from="1563632683280" duration="7369000" />
+      <workItem from="1563679087273" duration="4271000" />
+      <workItem from="1563683427779" duration="46000" />
+      <workItem from="1563683498249" duration="13162000" />
+      <workItem from="1563697161328" duration="11860000" />
+      <workItem from="1563756400276" duration="4935000" />
+      <workItem from="1563763240062" duration="7141000" />
+      <workItem from="1563775185462" duration="10128000" />
+      <workItem from="1563789276173" duration="417000" />
+      <workItem from="1563793156097" duration="51000" />
+      <workItem from="1563794582645" duration="11079000" />
+      <workItem from="1563806577243" duration="4187000" />
+      <workItem from="1563843659291" duration="1739000" />
+      <workItem from="1563847957951" duration="71000" />
+      <workItem from="1563853448499" duration="163000" />
+      <workItem from="1563873499374" duration="2717000" />
+      <workItem from="1563881465430" duration="7833000" />
+      <workItem from="1563931501561" duration="2839000" />
+      <workItem from="1563934370168" duration="36880000" />
+      <workItem from="1564015418131" duration="14033000" />
+      <workItem from="1564034380413" duration="4553000" />
+      <workItem from="1564055823303" duration="6201000" />
+      <workItem from="1564101829091" duration="92000" />
+      <workItem from="1564103149652" duration="2815000" />
+      <workItem from="1564150930540" duration="4407000" />
+      <workItem from="1564201019627" duration="42000" />
+      <workItem from="1564201342080" duration="82000" />
+      <workItem from="1564201616344" duration="32000" />
+      <workItem from="1564201678906" duration="10727000" />
+      <workItem from="1564275448844" duration="20666000" />
+      <workItem from="1564321500391" duration="197000" />
+      <workItem from="1564322890312" duration="625000" />
+      <workItem from="1564323576029" duration="1560000" />
+      <workItem from="1564325193309" duration="2093000" />
+      <workItem from="1564360747143" duration="224000" />
+      <workItem from="1564361011073" duration="191000" />
+      <workItem from="1564361656723" duration="2822000" />
+      <workItem from="1564365807055" duration="9250000" />
+      <workItem from="1564378852193" duration="3226000" />
+      <workItem from="1564382170892" duration="2325000" />
+      <workItem from="1564392480437" duration="8943000" />
+      <workItem from="1564407047356" duration="955000" />
+      <workItem from="1564408073782" duration="4256000" />
+      <workItem from="1564451075202" duration="6670000" />
+      <workItem from="1564457803775" duration="8583000" />
+      <workItem from="1564470000954" duration="4509000" />
+      <workItem from="1564474772692" duration="3111000" />
+      <workItem from="1564479002133" duration="296000" />
+      <workItem from="1564480364798" duration="15205000" />
+      <workItem from="1564533985875" duration="748000" />
+      <workItem from="1564554118003" duration="259000" />
+      <workItem from="1564564005444" duration="599000" />
+      <workItem from="1564572496249" duration="3815000" />
+      <workItem from="1564576553597" duration="5404000" />
+      <workItem from="1564589358022" duration="29000" />
+      <workItem from="1564623660781" duration="11755000" />
+      <workItem from="1564635545371" duration="7684000" />
+      <workItem from="1564645148788" duration="2886000" />
+      <workItem from="1564685696764" duration="3375000" />
+      <workItem from="1564720802101" duration="684000" />
+      <workItem from="1564722154486" duration="10648000" />
+      <workItem from="1564802748238" duration="858000" />
+      <workItem from="1564803624314" duration="1364000" />
+      <workItem from="1564806255842" duration="4674000" />
+      <workItem from="1564822747602" duration="3837000" />
+      <workItem from="1564838450209" duration="2067000" />
+      <workItem from="1564842435450" duration="4992000" />
+      <workItem from="1564893771086" duration="1114000" />
+      <workItem from="1564905752627" duration="1038000" />
+      <workItem from="1564906811031" duration="3623000" />
+      <workItem from="1565256885556" duration="768000" />
+      <workItem from="1565421737389" duration="6096000" />
+      <workItem from="1565499584146" duration="3707000" />
+      <workItem from="1568953493000" duration="3295000" />
+      <workItem from="1569591272959" duration="226000" />
+      <workItem from="1569591535559" duration="78000" />
+      <workItem from="1569593135992" duration="339000" />
+      <workItem from="1569593542000" duration="24000" />
+      <workItem from="1569593575001" duration="493000" />
+      <workItem from="1569594349719" duration="309000" />
+      <workItem from="1569594684005" duration="169000" />
+      <workItem from="1569594861201" duration="57000" />
+      <workItem from="1569595153527" duration="646000" />
+      <workItem from="1569597175976" duration="321000" />
+      <workItem from="1569597511455" duration="55000" />
+      <workItem from="1569903081230" duration="10927000" />
+      <workItem from="1569920055056" duration="699000" />
+      <workItem from="1569936048585" duration="176000" />
+      <workItem from="1569936255639" duration="22000" />
+      <workItem from="1569936653116" duration="112000" />
+      <workItem from="1569937402941" duration="52000" />
+      <workItem from="1569937856140" duration="670000" />
+      <workItem from="1569938620975" duration="529000" />
+      <workItem from="1569939553784" duration="1067000" />
+      <workItem from="1569941009569" duration="1561000" />
+      <workItem from="1570207962646" duration="857000" />
+      <workItem from="1570208834542" duration="204000" />
+      <workItem from="1570289453767" duration="729000" />
+      <workItem from="1571399903862" duration="1175000" />
+      <workItem from="1571713080402" duration="1710000" />
+      <workItem from="1571748227828" duration="482000" />
+      <workItem from="1572098901981" duration="175000" />
+      <workItem from="1572249008896" duration="1714000" />
+      <workItem from="1572313138877" duration="1132000" />
+      <workItem from="1572334201020" duration="1268000" />
+      <workItem from="1572342547326" duration="2092000" />
+      <workItem from="1572348313900" duration="61000" />
+      <workItem from="1572354999442" duration="1951000" />
+      <workItem from="1572358717114" duration="198000" />
+      <workItem from="1572359246159" duration="400000" />
+      <workItem from="1572434756420" duration="471000" />
+      <workItem from="1572510266447" duration="10000" />
+      <workItem from="1572849678172" duration="6000" />
+      <workItem from="1572850641210" duration="1350000" />
+      <workItem from="1572852130122" duration="187000" />
+      <workItem from="1573473767172" duration="935000" />
+      <workItem from="1573475472897" duration="3000" />
+      <workItem from="1573736308943" duration="454000" />
+      <workItem from="1573740159663" duration="306000" />
+      <workItem from="1573781239866" duration="347000" />
+      <workItem from="1573781716962" duration="816000" />
+      <workItem from="1573782699895" duration="620000" />
+      <workItem from="1573784526918" duration="2887000" />
+      <workItem from="1573787892807" duration="9000" />
+      <workItem from="1573800913847" duration="41000" />
+      <workItem from="1573803651429" duration="50000" />
+      <workItem from="1573803839222" duration="688000" />
+      <workItem from="1573823248935" duration="2845000" />
+      <workItem from="1573826537493" duration="619000" />
+      <workItem from="1573827538235" duration="2488000" />
+      <workItem from="1573868421148" duration="128000" />
+      <workItem from="1573869435016" duration="349000" />
+      <workItem from="1573884831957" duration="643000" />
+      <workItem from="1573982259962" duration="676000" />
+      <workItem from="1573983499138" duration="665000" />
+      <workItem from="1573984640341" duration="982000" />
+      <workItem from="1574077267684" duration="2163000" />
+      <workItem from="1575615260483" duration="41000" />
+      <workItem from="1576116595676" duration="346000" />
+      <workItem from="1577345928089" duration="430000" />
+    </task>
+    <task id="LOCAL-00001" summary="删除个人信息">
+      <created>1571713439117</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571713439117</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="删除个人信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除个人信息" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1577346092693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577346092693" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1577346092693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577346092693" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1577346092693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577346092693" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1577346092693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577346092693" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1577346086300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577346086300" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1577346086300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577346086300" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1577346086300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577346086300" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1577346086300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577346086300" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1577346032977">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577346032977" />
+  </component>
+</project>

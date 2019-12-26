@@ -5,7 +5,18 @@ A Beautiful Java Blog
 
 该项目是基于springboot实现的一个个人博客系统，包含了前后台系统，适合springboot初学者来学习。
 
+<<<<<<< HEAD
 请clone到本地，运行sql脚本，启动项目。
+=======
+前台预览地址：http://lsblog.vip
+
+后台预览地址：http://lsblog.vip/admin
+
+账号：admin
+密码：123123
+
+也可以clone到本地，运行查看。
+>>>>>>> fec45a29c32efaca51ed3014c97279fe42792661
 
 **说明：本系统是个人博客系统，只面向个人使用，所以后台没有做权限设置，请不要随便删除后台的数据！**
 
