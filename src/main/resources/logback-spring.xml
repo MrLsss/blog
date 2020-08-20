@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 彩色日志 -->
+	<conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+	<conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+	<conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+	<contextName>logback-spring</contextName>
+	<!-- 输出到控制台 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{MM-dd HH:mm:ss.SSS} %clr(%-5p) %clr([%-39logger{39}]){cyan} - %m%n%wEx</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 设置包打印日志级别，例如把所有mapper文件的sql都出到控制台，还可以精确到某个类 -->
+	<logger name="com.blog.admin.dao" level="DEBUG" />
+
+	<root level="info">
+		<appender-ref ref="console"/>
+	</root>
+
+</configuration>
