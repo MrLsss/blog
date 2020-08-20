@@ -46,7 +46,5 @@ mybatis-plus:
 # 打印sql
 logging:
   level:
-    root: info
     com.blog.admin.dao: DEBUG
-  pattern:
-    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%t-%L] %-5level %logger{36} %L %M - %msg%xEx%n'
+  config: classpath:logback-spring.xml

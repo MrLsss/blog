@@ -48,6 +48,7 @@ public class ImgUpload {
                 ftpClient.disconnect();
                 return result;
             }
+            //切换目录
             ftpClient.changeWorkingDirectory(Constant.FTP_REALPATH + filePath);
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             ftpClient.enterLocalPassiveMode();//这个设置允许被动连接--访问远程ftp时需要

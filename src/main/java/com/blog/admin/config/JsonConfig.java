@@ -31,8 +31,8 @@ public class JsonConfig implements WebMvcConfigurer {
         /*
          先把JackSon的消息转换器删除.
          备注: (1)源码分析可知，返回json的过程为:
-                    Controller调用结束后返回一个数据对象，for循环遍历conventers，找到支持application/json的HttpMessageConverter，                     然后将返回的数据序列化成json。
-                    具体参考org.springframework.web.servlet.mvc.method.annotatio.AbstractMessageConverterMethodProcessor的                    writeWithMessageConverters方法
+                    Controller调用结束后返回一个数据对象，for循环遍历conventers，找到支持application/json的HttpMessageConverter，然后将返回的数据序列化成json。
+                    具体参考org.springframework.web.servlet.mvc.method.annotatio.AbstractMessageConverterMethodProcessor的writeWithMessageConverters方法
                (2)由于是list结构，我们添加的fastjson在最后。因此必须要将jackson的转换器删除，不然会先匹配上jackson，导致没使用fastjson
         */
         for (int i = converters.size() - 1; i >= 0; i--) {

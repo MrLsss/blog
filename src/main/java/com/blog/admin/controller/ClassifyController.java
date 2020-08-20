@@ -1,8 +1,6 @@
 package com.blog.admin.controller;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.blog.admin.config.Constant;
 import com.blog.admin.config.LoginRequired;
@@ -70,7 +68,7 @@ public class ClassifyController {
         String classifyID = jsonObject.getString("id");
 
         Classify classify = new Classify();
-        classify.setId(Integer.valueOf(classifyID));
+        classify.setId(Integer.parseInt(classifyID));
         classify.setClassifyName(classifyName);
         classify.setClassifyDec(classifyDec);
         classify.setClassifyLastUpdateTime(DateTimeUtil.getCurrentDateTime());

@@ -16,16 +16,19 @@ public class Result {
     private Integer code;
     private String msg;
     private Object data;
+    private Boolean success;
 
     public Result(ResponseStatus status) {
         this.code = status.getCode();
         this.msg = status.getMsg();
+        this.success = status.getSuccess();
     }
 
     public Result(ResponseStatus status, Object data) {
         this.code = status.getCode();
         this.msg = status.getMsg();
         this.data = data;
+        this.success = status.getSuccess();
     }
 
     public Result(Integer code, String msg) {
@@ -45,16 +48,11 @@ public class Result {
         return new Result(ResponseStatus.SYSTEM_ERROR);
     }
 
-    public static Result ERROR(String msg) {
-        return new Result(500, msg);
+    public static Result ERROR(Object data) {
+        return new Result(ResponseStatus.SYSTEM_ERROR, data);
     }
 
-    public static Result SERVICE_ERROR() {
-        return new Result(ResponseStatus.SERVER_ERROR);
+    public static Result ERROR(ResponseStatus response) {
+        return new Result(response);
     }
-
-    public static Result REQUEST_PARAM_ERROR() {
-        return new Result(ResponseStatus.REQUEST_PARAM_ERROR);
-    }
-
 }

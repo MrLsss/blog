@@ -147,14 +147,12 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
     private CommentDTO buildTree(Comment comment, List<CommentDTO> list) {
         //获取当前节点对象
         CommentDTO node = new CommentDTO();
+        //查询id下的所有子节点
+        List<CommentDTO> childNodes = new ArrayList<>();
         for (CommentDTO commentDTO : list) {
             if (commentDTO.getComment().getId().equals(comment.getId())) {
                 node = commentDTO;
             }
-        }
-        //查询id下的所有子节点
-        List<CommentDTO> childNodes = new ArrayList<>();
-        for (CommentDTO commentDTO : list) {
             if (commentDTO.getComment().getCommentFather().equals(comment.getId())) {
                 childNodes.add(commentDTO);
             }

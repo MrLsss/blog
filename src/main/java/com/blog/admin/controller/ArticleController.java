@@ -130,9 +130,9 @@ public class ArticleController {
         if (i == 1) {
             return Result.SUCCESS();
         } else if (i == 0) {
-            return Result.REQUEST_PARAM_ERROR();
+            return Result.ERROR();
         } else {
-            return Result.SERVICE_ERROR();
+            return Result.ERROR();
         }
     }
 
@@ -148,9 +148,9 @@ public class ArticleController {
         if (i == 1) {
             return Result.SUCCESS();
         } else if (i == 0) {
-            return Result.REQUEST_PARAM_ERROR();
+            return Result.ERROR();
         } else {
-            return Result.SERVICE_ERROR();
+            return Result.ERROR();
         }
     }
 

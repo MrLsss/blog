@@ -8,6 +8,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * @author liushuai
+ */
 @Data
 @TableName(value = "t_blog_classify")
 public class Classify implements Serializable {

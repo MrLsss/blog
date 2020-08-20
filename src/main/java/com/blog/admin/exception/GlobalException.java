@@ -1,15 +1,28 @@
 package com.blog.admin.exception;
 
-import lombok.Getter;
-import lombok.Setter;
 
+/**
+ * 自定义异常
+ */
 public class GlobalException extends RuntimeException {
 
-    @Getter
-    @Setter
-    private String msg;
+    public GlobalException() {
+        super();
+    }
 
-    public GlobalException(String msg) {
-        this.msg = msg;
+    public GlobalException(String message) {
+        super(message);
+    }
+
+    public GlobalException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public GlobalException(Throwable cause) {
+        super(cause);
+    }
+
+    protected GlobalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

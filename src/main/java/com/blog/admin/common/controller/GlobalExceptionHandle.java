@@ -21,10 +21,4 @@ public class GlobalExceptionHandle {
         logger.error(e.getMessage(), e);
         return new Result(ResponseStatus.SYSTEM_ERROR);
     }
-
-    @ExceptionHandler(GlobalException.class)
-    public Result globalException(GlobalException e, HttpServletResponse response) {
-        logger.error(e.getMsg(), e);
-        return new Result(response.getStatus(), e.getMsg());
-    }
 }

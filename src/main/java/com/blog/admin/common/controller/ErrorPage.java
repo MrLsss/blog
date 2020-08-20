@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ErrorPage implements ErrorController {
 
-
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
@@ -19,7 +18,7 @@ public class ErrorPage implements ErrorController {
             case 500:
                 return "admin/common/500";
             default:
-            return "null";
+                return "null";
         }
     }
 

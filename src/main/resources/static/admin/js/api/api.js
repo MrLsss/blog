@@ -81,7 +81,7 @@ const api = {
             return '/admin/link/' + id
         },
         batchDelete(ids) {
-            return '/admin/links/   ' + ids
+            return '/admin/links/' + ids
         },
         add: '/admin/link',
         save: '/admin/link'
